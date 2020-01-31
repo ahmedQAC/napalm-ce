@@ -91,7 +91,8 @@ class CEDriver(NetworkDriver):
         }
 
         self.transport = optional_args.get('transport', 'ssh')
-        self.port = optional_args.get('port', 22)
+        default_ports = {"ssh": 22, "telnet": 23}
+        self.port = default_ports[self.transport]
 
         self.changed = False
         self.loaded = False
@@ -106,6 +107,8 @@ class CEDriver(NetworkDriver):
         try:
             if self.transport == 'ssh':
                 device_type = 'huawei'
+            elif self.transport == 'telnet':
+                device_type = 'huawei_telnet'
             else:
                 raise ConnectionException("Unknown transport: {}".format(self.transport))
 
