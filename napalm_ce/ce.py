@@ -1092,9 +1092,10 @@ class CEDriver(NetworkDriver):
 
         try:
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
-            commands = ['interface GigabitEthernet0/0/10', 'description testing']
+            # commands = ['interface GigabitEthernet0/0/10', 'description testing']
             for command in commands:
                 print("INSIDE ce.py line: 1096")
+                print(type(command),flush=True)
                 print(command,flush=True) #######TESTING
                 # output += self.device.send_command(command) ##ORIGINAL r'\[.+\]'
                 self.device.send_command(command, expect_string=r'\[.+\]') ##ORIGINAL r'\[.+\]'
