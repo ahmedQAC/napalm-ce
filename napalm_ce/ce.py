@@ -1085,11 +1085,15 @@ class CEDriver(NetworkDriver):
         commands = [command for command in self.merge_candidate.splitlines() if command]
         output = ''
 
+        ####TESTING####
+        for command in commands:
+            print(command,flush=True)
+
         try:
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
             for command in commands:
                 print(command,flush=True) #######TESTING
-                output += self.device.send_command(command, expect_string=r'\[.+\]')
+                output += self.device.send_command(command, expect_string=r'\[ .+\]')
 
             if self.device.check_config_mode():
                 check_error = re.search("error", output, re.IGNORECASE)
