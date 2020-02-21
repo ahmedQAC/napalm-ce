@@ -1096,10 +1096,11 @@ class CEDriver(NetworkDriver):
                 print("INSIDE ce.py line: 1096")
                 print(command,flush=True) #######TESTING
                 output += self.device.send_command(command, expect_string=r'.+') ##ORIGINAL r'\[.+\]'
+                print("THE CURRENT OUTPUT IS:" + output, flush=True)
 
             if self.device.check_config_mode():
                 check_error = re.search("error", output, re.IGNORECASE)
-                print("COMING BELOW")
+                print("COMING BELOW", flush=True)
                 if check_error is not None:
                     return_log = self.device.send_command('return', expect_string=r'[<\[].+[>\]]')
                     if 'Uncommitted configurations' in return_log:
