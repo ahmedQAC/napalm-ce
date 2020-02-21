@@ -1094,7 +1094,7 @@ class CEDriver(NetworkDriver):
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
             for command in commands:
                 print(command,flush=True) #######TESTING
-                output += self.device.send_command(command, expect_string=r'\[.+\]')
+                output += self.device.send_command(command, expect_string=r'(Enter system view, return user view with Ctrl\+Z)|(\[.+\])')
 
             if self.device.check_config_mode():
                 check_error = re.search("error", output, re.IGNORECASE)
