@@ -1091,8 +1091,9 @@ class CEDriver(NetworkDriver):
             print(command,flush=True)
 
         try:
-            output += self.device.send_command('system-view', expect_string=r'\[.+\]')
+            output += self.device.send_command('system-view', expect_string=r'.+')
             for command in commands:
+                print("INSIDE ce.py line: 1096")
                 print(command,flush=True) #######TESTING
                 output += self.device.send_command(command, expect_string=r'.+') ##ORIGINAL r'\[.+\]'
 
