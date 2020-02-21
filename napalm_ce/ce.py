@@ -1086,6 +1086,7 @@ class CEDriver(NetworkDriver):
         output = ''
 
         ####TESTING####
+        print("INSIDE ce.py line: 1089")
         for command in commands:
             print(command,flush=True)
 
@@ -1093,7 +1094,7 @@ class CEDriver(NetworkDriver):
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
             for command in commands:
                 print(command,flush=True) #######TESTING
-                output += self.device.send_command(command, expect_string=r'\[ .+\]')
+                output += self.device.send_command(command, expect_string=r'\[.+\]')
 
             if self.device.check_config_mode():
                 check_error = re.search("error", output, re.IGNORECASE)
