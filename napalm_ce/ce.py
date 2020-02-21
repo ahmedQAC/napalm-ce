@@ -1092,13 +1092,13 @@ class CEDriver(NetworkDriver):
 
         try:
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
-            # commands = ['interface GigabitEthernet0/0/10', 'description testing']
+            commands = ['interface GigabitEthernet0/0/10', 'description :r=qt200-eslvs-1:q=e0:testing:p=ttt:i=OGHP91919:ci=ADO919191:sev=5:x=999']
             for command in commands:
                 print("INSIDE ce.py line: 1096")
                 print(type(command),flush=True)
                 print(command,flush=True) #######TESTING
-                # output += self.device.send_command(command) ##ORIGINAL r'\[.+\]'
-                self.device.send_command(command, expect_string=r'\[.+\]') ##ORIGINAL r'\[.+\]'
+                # output += self.device.send_command(command) ##ORIGINAL r'\[.+\]
+                self.device.send_command(command, expect_string=r'\[.+\]') 
                 print("THE CURRENT OUTPUT IS:" + output, flush=True)
 
             if self.device.check_config_mode():
