@@ -1099,6 +1099,7 @@ class CEDriver(NetworkDriver):
 
             if self.device.check_config_mode():
                 check_error = re.search("error", output, re.IGNORECASE)
+                print("COMING BELOW")
                 if check_error is not None:
                     return_log = self.device.send_command('return', expect_string=r'[<\[].+[>\]]')
                     if 'Uncommitted configurations' in return_log:
