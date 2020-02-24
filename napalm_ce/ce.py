@@ -1092,7 +1092,7 @@ class CEDriver(NetworkDriver):
 
         try:
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
-            commands = ['interface GigabitEthernet0/0/10', ':r=qt200-eslvs-1:q=e0:t=access:p=ttt:i=OGHP1113:ci=ADO3:sev=5:x=123'] #:r=qt200-eslvs-1:q=e0:t=access:p=ttt:i=OGHP1113:ci=ADO3:sev=5:x=123
+            commands = ['interface GigabitEthernet0/0/10', 'description :r=qt200-eslvs-1:q=e0:t=access:p=ttt:i=OGHP1113:ci=ADO3:sev=5:x=123'] #:r=qt200-eslvs-1:q=e0:t=access:p=ttt:i=OGHP1113:ci=ADO3:sev=5:x=123
             for command in commands:
                 print("INSIDE ce.py line: 1096")
                 print(type(command),flush=True)
