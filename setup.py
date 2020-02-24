@@ -15,7 +15,7 @@ reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name="napalm-ce",
-    version="#{buildVersion}",
+    version="2020.02.24.1",
     packages=find_packages(),
     author="Hao Tang",
     author_email="thddaniel92@gmail.com",
