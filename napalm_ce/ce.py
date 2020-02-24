@@ -1086,24 +1086,23 @@ class CEDriver(NetworkDriver):
         output = ''
 
         ####TESTING####
-        print("INSIDE ce.py line: 1089")
-        for command in commands:
-            print(command,flush=True)
+        print("INSIDE ce.py line: 1089") ##TESTING
+        for command in commands: ##TESTING
+            print(command,flush=True) ##TESTING
 
         try:
             output += self.device.send_command('system-view', expect_string=r'\[.+\]')
             #commands = ['interface GigabitEthernet0/0/10', 'description :r=qt200-eslvs-1:q=e0:t=access:p=ttt:i=OGHP1113:ci=ADO3:sev=5:x=123'] #:r=qt200-eslvs-1:q=e0:t=access:p=ttt:i=OGHP1113:ci=ADO3:sev=5:x=123
             for command in commands:
-                print("INSIDE ce.py line: 1096")
-                print(type(command),flush=True)
-                print(command,flush=True) #######TESTING
-                # output += self.device.send_command(command) ##ORIGINAL r'\[.+\]
-                self.device.send_command(command, expect_string=r'\[.+\]') 
-                print("THE CURRENT OUTPUT IS:" + output, flush=True)
+                print("INSIDE ce.py line: 1096") ##TESTING
+                print(type(command),flush=True) ##TESTING
+                print(command,flush=True) ##TESTING
+                output += self.device.send_command(command, expect_string=r'\[.+\]') 
+                print("THE CURRENT OUTPUT IS:" + output, flush=True) ##TESTING
 
             if self.device.check_config_mode():
                 check_error = re.search("error", output, re.IGNORECASE)
-                print("COMING BELOW", flush=True)
+                print("Inside ce.py line:1106 (commands have been pushed)", flush=True) ##TESTING
                 if check_error is not None:
                     return_log = self.device.send_command('return', expect_string=r'[<\[].+[>\]]')
                     if 'Uncommitted configurations' in return_log:
